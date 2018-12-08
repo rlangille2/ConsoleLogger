@@ -1,5 +1,7 @@
 package app;
 
-public class Queryable {
+public interface Queryable {
 
+	public void ask(String input);
+	
 }

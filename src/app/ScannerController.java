@@ -13,10 +13,10 @@ public class ScannerController {
 	
 	public void start() {
 		this.isRunning = true;
-		ask(AskBool, "Key in one of the options and hit enter. Do you understand? [Y/N]");
+		ask(new AskBool(), "Key in one of the options and hit enter. Do you understand? [Y/N]");
 	}
 	
-	public void ask(Class Queryable, String question) {
+	public void ask(Queryable queryable, String question) {
 		System.out.println(question);
 		System.out.print("> ");
 		scanner.hasNextLine();
@@ -25,7 +25,7 @@ public class ScannerController {
 	}
 	
 	public void query(Queryable queryable, String input) {
-		System.out.println("input was: " + input);
+		queryable.ask(input);
 	}
 
 }
