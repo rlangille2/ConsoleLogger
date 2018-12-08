@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Ryan
- *
- */
-module consoleLogger {
-}
