@@ -2,8 +2,8 @@ package app;
 
 import java.util.HashMap;
 
-public class AskBool implements Queryable{
-	private Boolean bool;
+public class AskBool implements Queryable {
+
 	private static HashMap<String, Boolean> boolMap = new HashMap<>();
 	static {
 		boolMap.put("Y", true);
@@ -15,26 +15,22 @@ public class AskBool implements Queryable{
 		boolMap.put("No", false);
 		boolMap.put("F", false);
 		boolMap.put("F", false);
-		boolMap.put("0", false);		
-	}
-	
-	
-	public void ask(String input) {
-		bool = inputIsValid(input);
-		if(!bool) {
-			printError();
-		} else {
-			System.out.println(boolMap.get(input));	
-		}
-	}
-	
-	private Boolean inputIsValid(String input) {
-		return boolMap.containsKey(input);
-	}
-	
-	private void printError() {
-		System.out.println("input invalid");
+		boolMap.put("0", false);
+		boolMap.put("Exit", null);
 	}
 
+	public void ask(String input) {
+		System.out.println(boolMap.get(input));
+	}
+
+	public Boolean isInputValid(String input) {
+		return boolMap.containsKey(input);
+	}
+
+	// Error Handling
+
+	public void errorHandler() {
+		System.out.println("Error: " + "Input not included in static HashMap for AskBool");
+	}
 
 }
